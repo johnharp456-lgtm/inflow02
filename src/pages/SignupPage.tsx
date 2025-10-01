@@ -56,14 +56,21 @@ export default function SignupPage() {
     }));
   };
 
+  const handleLogoClick = () => {
+    window.location.href = '/';
+  };
+
   return (
-    <div className="min-h-screen flex bg-white">
+    <div className="h-screen flex bg-white overflow-hidden">
       {/* Left Section - Form */}
-      <div className="flex-1 flex flex-col justify-center px-8 sm:px-12 lg:px-16 xl:px-20 relative">
+      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 lg:px-12 xl:px-16 relative">
         {/* Logo */}
-        <div className="absolute top-8 left-8">
-          <div className="flex items-center space-x-2">
-            <div className="relative h-8 w-[120px]">
+        <div className="absolute top-6 left-6 sm:left-8">
+          <div 
+            className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
+            onClick={handleLogoClick}
+          >
+            <div className="relative h-10 w-[140px]">
               <div className="h-full w-full bg-gradient-to-r from-[#FF4DA6] to-[#7C3AED]"
                 style={{
                   WebkitMaskImage: "url('/dffdf.png')",
@@ -80,37 +87,37 @@ export default function SignupPage() {
           </div>
         </div>
 
-        <div className="max-w-md mx-auto w-full">
+        <div className="max-w-sm mx-auto w-full">
           {/* Header */}
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-3">
-              Welcome
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+              Create Your Account
             </h1>
-            <p className="text-gray-600 text-lg">
-              Create your account to get started.
+            <p className="text-gray-600 text-base">
+              Join thousands of businesses growing with our platform.
             </p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-xl text-red-600 text-sm">
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
               {error}
             </div>
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type="text"
                   name="username"
                   value={formData.username}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
                   placeholder="Enter your full name"
                   required
                 />
@@ -118,17 +125,17 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Email
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
                   placeholder="Enter your email"
                   required
                 />
@@ -136,17 +143,17 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-gray-700 mb-1">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-10 pr-12 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
                   placeholder="Enter your password"
                   required
                 />
@@ -155,7 +162,7 @@ export default function SignupPage() {
                   onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                 </button>
               </div>
             </div>
@@ -163,14 +170,14 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-xl font-semibold text-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
             >
               {loading ? 'Please wait...' : 'Create Account'}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="relative my-8">
+          <div className="relative my-5">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300"></div>
             </div>
@@ -182,9 +189,9 @@ export default function SignupPage() {
           {/* Google OAuth Button */}
           <button
             onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center px-4 py-3 bg-white border border-gray-300 rounded-xl text-gray-700 font-medium hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md mb-8"
+            className="w-full flex items-center justify-center px-4 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md mb-5 text-sm"
           >
-            <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -195,10 +202,10 @@ export default function SignupPage() {
 
           {/* Toggle Auth Mode */}
           <div className="text-center">
-            <span className="text-gray-600">Already have an account? </span>
+            <span className="text-gray-600 text-sm">Already have an account? </span>
             <a
               href="/login"
-              className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+              className="text-blue-600 hover:text-blue-700 font-medium transition-colors text-sm"
             >
               Log in
             </a>
@@ -206,7 +213,7 @@ export default function SignupPage() {
         </div>
 
         {/* Footer */}
-        <div className="absolute bottom-8 left-8 right-8 flex justify-between text-sm text-gray-400">
+        <div className="absolute bottom-4 left-6 right-6 sm:left-8 sm:right-8 flex flex-col sm:flex-row justify-between text-xs text-gray-400 space-y-1 sm:space-y-0">
           <span>Copyright © 2025 Inflow Enterprises LTD.</span>
           <a href="/privacy" className="hover:text-gray-600 transition-colors">
             Privacy Policy
@@ -223,62 +230,62 @@ export default function SignupPage() {
         <div className="absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-32 left-20 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
         
-        <div className="flex flex-col justify-center items-center text-center px-12 relative z-10">
-          {/* Header Text */}
-          <div className="mb-12">
-            <h2 className="text-4xl font-black text-white mb-4">
+        <div className="flex flex-col justify-center items-center text-center px-8 relative z-10 w-full">
+          {/* Header Text with proper spacing */}
+          <div className="mb-8 mt-16">
+            <h2 className="text-3xl font-black text-white mb-3">
               Start building your business today.
             </h2>
-            <p className="text-xl text-blue-100 max-w-md-4 leading-relaxed">
+            <p className="text-lg text-blue-100 max-w-md leading-relaxed">
               Join thousands of businesses growing with our platform.
             </p>
           </div>
           
-          {/* Dashboard Preview - Static and Vertically Aligned */}
-          <div className="w-full max-w-2xl bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl p-6">
-            <div className="space-y-6">
+          {/* Dashboard Preview - Redesigned and properly positioned */}
+          <div className="w-full max-w-xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4 mb-16">
+            <div className="space-y-4">
               {/* Setup Progress */}
-              <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-4 rounded-xl">
-                <div className="text-sm opacity-90">Setup Progress</div>
-                <div className="text-2xl font-bold">85%</div>
+              <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 rounded-lg">
+                <div className="text-xs opacity-90">Setup Progress</div>
+                <div className="text-lg font-bold">85%</div>
                 <div className="text-xs opacity-75">Almost ready to launch</div>
               </div>
 
               {/* Growth Metrics */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white border border-gray-200 p-4 rounded-xl">
-                  <div className="text-sm text-gray-600">User Growth</div>
-                  <div className="text-2xl font-bold text-gray-900">+247%</div>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-white border border-gray-200 p-3 rounded-lg">
+                  <div className="text-xs text-gray-600">User Growth</div>
+                  <div className="text-lg font-bold text-gray-900">+247%</div>
                   <div className="text-xs text-green-600">↗ This month</div>
                 </div>
-                <div className="bg-white border border-gray-200 p-4 rounded-xl">
-                  <div className="text-sm text-gray-600">Revenue Growth</div>
-                  <div className="text-2xl font-bold text-gray-900">$12,450</div>
+                <div className="bg-white border border-gray-200 p-3 rounded-lg">
+                  <div className="text-xs text-gray-600">Revenue Growth</div>
+                  <div className="text-lg font-bold text-gray-900">$12,450</div>
                   <div className="text-xs text-green-600">↗ Monthly recurring</div>
                 </div>
               </div>
 
               {/* First Dashboard Preview */}
-              <div className="bg-white border border-gray-200 p-4 rounded-xl">
-                <div className="text-sm font-medium text-gray-900 mb-3">Your First Dashboard</div>
-                <div className="space-y-3">
+              <div className="bg-white border border-gray-200 p-3 rounded-lg">
+                <div className="text-xs font-medium text-gray-900 mb-2">Your First Dashboard</div>
+                <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
                       <span className="text-xs text-gray-600">Team Members</span>
                     </div>
                     <span className="text-xs font-medium">5 Active</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                       <span className="text-xs text-gray-600">Active Projects</span>
                     </div>
                     <span className="text-xs font-medium">12 Running</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       <span className="text-xs text-gray-600">Completed Tasks</span>
                     </div>
                     <span className="text-xs font-medium">89 Done</span>
@@ -287,9 +294,9 @@ export default function SignupPage() {
               </div>
 
               {/* Onboarding Steps */}
-              <div className="bg-white border border-gray-200 p-4 rounded-xl">
-                <div className="text-sm font-medium text-gray-900 mb-3">Getting Started</div>
-                <div className="space-y-2">
+              <div className="bg-white border border-gray-200 p-3 rounded-lg">
+                <div className="text-xs font-medium text-gray-900 mb-2">Getting Started</div>
+                <div className="space-y-1">
                   {[
                     { step: 'Create your account', completed: true },
                     { step: 'Set up your team', completed: true },
@@ -298,7 +305,7 @@ export default function SignupPage() {
                     { step: 'Invite team members', completed: false }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
-                      <div className={`w-2 h-2 rounded-full ${item.completed ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                      <div className={`w-1.5 h-1.5 rounded-full ${item.completed ? 'bg-green-500' : 'bg-gray-300'}`}></div>
                       <span className={`text-xs ${item.completed ? 'text-gray-900' : 'text-gray-500'}`}>
                         {item.step}
                       </span>
@@ -310,16 +317,16 @@ export default function SignupPage() {
 
               {/* Quick Stats */}
               <div className="grid grid-cols-3 gap-2">
-                <div className="bg-blue-50 p-3 rounded-lg text-center">
-                  <div className="text-lg font-bold text-blue-600">24</div>
+                <div className="bg-blue-50 p-2 rounded-lg text-center">
+                  <div className="text-sm font-bold text-blue-600">24</div>
                   <div className="text-xs text-blue-600">Contacts</div>
                 </div>
-                <div className="bg-purple-50 p-3 rounded-lg text-center">
-                  <div className="text-lg font-bold text-purple-600">8</div>
+                <div className="bg-purple-50 p-2 rounded-lg text-center">
+                  <div className="text-sm font-bold text-purple-600">8</div>
                   <div className="text-xs text-purple-600">Pipelines</div>
                 </div>
-                <div className="bg-green-50 p-3 rounded-lg text-center">
-                  <div className="text-lg font-bold text-green-600">15</div>
+                <div className="bg-green-50 p-2 rounded-lg text-center">
+                  <div className="text-sm font-bold text-green-600">15</div>
                   <div className="text-xs text-green-600">Deals</div>
                 </div>
               </div>
