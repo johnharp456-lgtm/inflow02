@@ -61,16 +61,16 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex bg-white">
+    <div className="min-h-screen flex bg-white transform scale-90 origin-top">
       {/* Left Section - Form */}
-      <div className="flex-1 flex flex-col justify-center px-6 sm:px-8 lg:px-12 xl:px-16 relative min-h-screen py-8">
+      <div className="flex-1 flex flex-col justify-center px-5 sm:px-6 lg:px-10 xl:px-12 relative min-h-screen py-6">
         {/* Logo */}
-        <div className="absolute top-8 left-6 sm:left-8">
+        <div className="absolute top-6 left-5 sm:left-6">
           <div 
             className="flex items-center space-x-2 cursor-pointer hover:opacity-80 transition-opacity"
             onClick={handleLogoClick}
           >
-            <div className="relative h-10 w-[140px]">
+            <div className="relative h-8 w-[112px]">
               <div className="h-full w-full bg-gradient-to-r from-[#FF4DA6] to-[#7C3AED]"
                 style={{
                   WebkitMaskImage: "url('/dffdf.png')",
@@ -87,37 +87,37 @@ export default function SignupPage() {
           </div>
         </div>
 
-        <div className="max-w-sm mx-auto w-full">
+        <div className="max-w-xs mx-auto w-full">
           {/* Header */}
-          <div className="mb-6">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <div className="mb-5">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2">
               Create Your Account
             </h1>
-            <p className="text-gray-600 text-base">
+            <p className="text-gray-600 text-sm">
               Join thousands of businesses growing with our platform.
             </p>
           </div>
 
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
+            <div className="mb-3 p-2 bg-red-50 border border-red-200 rounded-lg text-red-600 text-xs">
               {error}
             </div>
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Full Name
               </label>
               <div className="relative">
-                <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <User className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={14} />
                 <input
                   type="text"
                   name="username"
                   value={formData.username}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
+                  className="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-xs"
                   placeholder="Enter your full name"
                   required
                 />
@@ -125,17 +125,17 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Email
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <Mail className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={14} />
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
+                  className="w-full pl-8 pr-3 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-xs"
                   placeholder="Enter your email"
                   required
                 />
@@ -143,26 +143,26 @@ export default function SignupPage() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-xs font-medium text-gray-700 mb-1">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+                <Lock className="absolute left-2 top-1/2 transform -translate-y-1/2 text-gray-400" size={14} />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleChange}
-                  className="w-full pl-10 pr-12 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-sm"
+                  className="w-full pl-8 pr-10 py-2 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-xs"
                   placeholder="Enter your password"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
                 >
-                  {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+                  {showPassword ? <EyeOff size={14} /> : <Eye size={14} />}
                 </button>
               </div>
             </div>
@@ -170,18 +170,18 @@ export default function SignupPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+              className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold text-xs transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
             >
               {loading ? 'Please wait...' : 'Create Account'}
             </button>
           </form>
 
           {/* Divider */}
-          <div className="relative my-5">
+          <div className="relative my-4">
             <div className="absolute inset-0 flex items-center">
               <div className="w-full border-t border-gray-300"></div>
             </div>
-            <div className="relative flex justify-center text-sm">
+            <div className="relative flex justify-center text-xs">
               <span className="px-4 bg-white text-gray-500">Or Continue With</span>
             </div>
           </div>
@@ -189,9 +189,9 @@ export default function SignupPage() {
           {/* Google OAuth Button */}
           <button
             onClick={handleGoogleSignIn}
-            className="w-full flex items-center justify-center px-4 py-2.5 bg-white border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md mb-5 text-sm"
+            className="w-full flex items-center justify-center px-3 py-2 bg-white border border-gray-300 rounded-lg text-gray-700 font-medium hover:bg-gray-50 transition-all duration-200 shadow-sm hover:shadow-md mb-4 text-xs"
           >
-            <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24">
+            <svg className="w-3 h-3 mr-2" viewBox="0 0 24 24">
               <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
               <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
               <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -202,10 +202,10 @@ export default function SignupPage() {
 
           {/* Toggle Auth Mode */}
           <div className="text-center">
-            <span className="text-gray-600 text-sm">Already have an account? </span>
+            <span className="text-gray-600 text-xs">Already have an account? </span>
             <a
               href="/login"
-              className="text-blue-600 hover:text-blue-700 font-medium transition-colors text-sm"
+              className="text-blue-600 hover:text-blue-700 font-medium transition-colors text-xs"
             >
               Log in
             </a>
@@ -213,7 +213,7 @@ export default function SignupPage() {
         </div>
 
         {/* Footer */}
-        <div className="absolute bottom-6 left-6 right-6 sm:left-8 sm:right-8 flex flex-col sm:flex-row justify-between text-xs text-gray-400 space-y-1 sm:space-y-0">
+        <div className="absolute bottom-5 left-5 right-5 sm:left-6 sm:right-6 flex flex-col sm:flex-row justify-between text-xs text-gray-400 space-y-1 sm:space-y-0">
           <span>Copyright © 2025 Inflow Enterprises LTD.</span>
           <a href="/privacy" className="hover:text-gray-600 transition-colors">
             Privacy Policy
@@ -231,69 +231,69 @@ export default function SignupPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-purple-500/60 via-transparent to-pink-400/40"></div>
         
         {/* Animated Floating Shapes */}
-        <div className="absolute top-32 right-16 w-80 h-80 bg-gradient-to-r from-cyan-400/40 to-purple-500/40 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 left-16 w-96 h-96 bg-gradient-to-r from-pink-400/30 to-cyan-400/30 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
-        <div className="absolute top-1/3 left-1/3 w-72 h-72 bg-gradient-to-r from-purple-400/25 to-pink-500/25 rounded-full mix-blend-multiply filter blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-24 right-12 w-64 h-64 bg-gradient-to-r from-cyan-400/40 to-purple-500/40 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-16 left-12 w-80 h-80 bg-gradient-to-r from-pink-400/30 to-cyan-400/30 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/3 left-1/3 w-56 h-56 bg-gradient-to-r from-purple-400/25 to-pink-500/25 rounded-full mix-blend-multiply filter blur-2xl animate-float" style={{ animationDelay: '1s' }}></div>
         
         {/* Subtle Pattern Overlay */}
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%221%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-60"></div>
         
-        <div className="flex flex-col justify-center items-center text-center px-8 relative z-10 w-full">
+        <div className="flex flex-col justify-center items-center text-center px-6 relative z-10 w-full">
           {/* Header Text with proper spacing */}
-          <div className="mb-8 mt-16">
-            <h2 className="text-3xl font-black text-white mb-3">
+          <div className="mb-6 mt-12">
+            <h2 className="text-2xl font-black text-white mb-2">
               Start building your business today.
             </h2>
-            <p className="text-lg text-blue-100 max-w-md-4 leading-relaxed">
+            <p className="text-sm text-blue-100 max-w-sm leading-relaxed">
               Join thousands of businesses growing with our platform.
             </p>
           </div>
           
           {/* Dashboard Preview - Redesigned and properly positioned */}
-          <div className="w-full max-w-xl bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-4 mb-16">
-            <div className="space-y-4">
+          <div className="w-full max-w-lg bg-white/95 backdrop-blur-sm rounded-xl shadow-2xl p-3 mb-12">
+            <div className="space-y-3">
               {/* Setup Progress */}
-              <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-3 rounded-lg">
+              <div className="bg-gradient-to-r from-green-500 to-green-600 text-white p-2 rounded-lg">
                 <div className="text-xs opacity-90">Setup Progress</div>
-                <div className="text-lg font-bold">85%</div>
+                <div className="text-sm font-bold">85%</div>
                 <div className="text-xs opacity-75">Almost ready to launch</div>
               </div>
 
               {/* Growth Metrics */}
-              <div className="grid grid-cols-2 gap-3">
-                <div className="bg-white border border-gray-200 p-3 rounded-lg">
+              <div className="grid grid-cols-2 gap-2">
+                <div className="bg-white border border-gray-200 p-2 rounded-lg">
                   <div className="text-xs text-gray-600">User Growth</div>
-                  <div className="text-lg font-bold text-gray-900">+247%</div>
+                  <div className="text-sm font-bold text-gray-900">+247%</div>
                   <div className="text-xs text-green-600">↗ This month</div>
                 </div>
-                <div className="bg-white border border-gray-200 p-3 rounded-lg">
+                <div className="bg-white border border-gray-200 p-2 rounded-lg">
                   <div className="text-xs text-gray-600">Revenue Growth</div>
-                  <div className="text-lg font-bold text-gray-900">$12,450</div>
+                  <div className="text-sm font-bold text-gray-900">$12,450</div>
                   <div className="text-xs text-green-600">↗ Monthly recurring</div>
                 </div>
               </div>
 
               {/* First Dashboard Preview */}
-              <div className="bg-white border border-gray-200 p-3 rounded-lg">
+              <div className="bg-white border border-gray-200 p-2 rounded-lg">
                 <div className="text-xs font-medium text-gray-900 mb-2">Your First Dashboard</div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-blue-500 rounded-full"></div>
                       <span className="text-xs text-gray-600">Team Members</span>
                     </div>
                     <span className="text-xs font-medium">5 Active</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-purple-500 rounded-full"></div>
                       <span className="text-xs text-gray-600">Active Projects</span>
                     </div>
                     <span className="text-xs font-medium">12 Running</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                      <div className="w-1.5 h-1.5 bg-green-500 rounded-full"></div>
                       <span className="text-xs text-gray-600">Completed Tasks</span>
                     </div>
                     <span className="text-xs font-medium">89 Done</span>
@@ -302,7 +302,7 @@ export default function SignupPage() {
               </div>
 
               {/* Onboarding Steps */}
-              <div className="bg-white border border-gray-200 p-3 rounded-lg">
+              <div className="bg-white border border-gray-200 p-2 rounded-lg">
                 <div className="text-xs font-medium text-gray-900 mb-2">Getting Started</div>
                 <div className="space-y-1">
                   {[
@@ -313,7 +313,7 @@ export default function SignupPage() {
                     { step: 'Invite team members', completed: false }
                   ].map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
-                      <div className={`w-1.5 h-1.5 rounded-full ${item.completed ? 'bg-green-500' : 'bg-gray-300'}`}></div>
+                      <div className={`w-1 h-1 rounded-full ${item.completed ? 'bg-green-500' : 'bg-gray-300'}`}></div>
                       <span className={`text-xs ${item.completed ? 'text-gray-900' : 'text-gray-500'}`}>
                         {item.step}
                       </span>
@@ -324,17 +324,17 @@ export default function SignupPage() {
               </div>
 
               {/* Quick Stats */}
-              <div className="grid grid-cols-3 gap-2">
-                <div className="bg-blue-50 p-2 rounded-lg text-center">
-                  <div className="text-sm font-bold text-blue-600">24</div>
+              <div className="grid grid-cols-3 gap-1">
+                <div className="bg-blue-50 p-1 rounded-lg text-center">
+                  <div className="text-xs font-bold text-blue-600">24</div>
                   <div className="text-xs text-blue-600">Contacts</div>
                 </div>
-                <div className="bg-purple-50 p-2 rounded-lg text-center">
-                  <div className="text-sm font-bold text-purple-600">8</div>
+                <div className="bg-purple-50 p-1 rounded-lg text-center">
+                  <div className="text-xs font-bold text-purple-600">8</div>
                   <div className="text-xs text-purple-600">Pipelines</div>
                 </div>
-                <div className="bg-green-50 p-2 rounded-lg text-center">
-                  <div className="text-sm font-bold text-green-600">15</div>
+                <div className="bg-green-50 p-1 rounded-lg text-center">
+                  <div className="text-xs font-bold text-green-600">15</div>
                   <div className="text-xs text-green-600">Deals</div>
                 </div>
               </div>
