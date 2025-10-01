@@ -236,7 +236,7 @@ export default function SignupPage() {
             <h2 className="text-3xl font-black text-white mb-3">
               Start building your business today.
             </h2>
-            <p className="text-lg text-blue-100 max-w-md leading-relaxed">
+            <p className="text-lg text-blue-100 max-w-md-4 leading-relaxed">
               Join thousands of businesses growing with our platform.
             </p>
           </div>
